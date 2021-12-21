@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Readex Pro', sans-serif; */
+  }
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+/* This container contains a description and instructions for the game */
+#instructions-container{
+    display: flex;
+    background-color: blue;
+    padding: 10px;
+}
+
+#instructions-item{
+    background-color: white;
+    border:;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.hide{
+
+}
+
+
+#game-container {
+    width: 50vw;
+}
+
+#display-container{
+
+}
+
+#player1-name{
+
+}
+
+#player2-name{
+
+}
+
+
+#game-prompt{
+
+}
+
+#name-container{
+
+}
+
+
+/* CSS for the form container where users insert their names */
+form {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  /* ===========  Css for the jeopardy board ============ */
+
+  .board{
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px 300px 300px;
+    grid-template-rows: 150px 150px 150px 150px 150px 150px 150px;
+    justify-content: center;
+    }
+
+    .categories{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background: linear-gradient(to top left, #000088, #0000ff);
+        border: 5px solid black;
+    }

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../PerScholas-Coursework/mod1/Week5/Pokemon-Battle"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Game-Project"
+	}
+}
