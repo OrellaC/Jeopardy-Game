@@ -5,9 +5,12 @@
 		},
 		{
 			"path": "../PerScholas-Coursework/mod1/Week5/Pokemon-Battle"
+		},
+		{
+			"path": "../Homework/practice"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Game-Project"
+		"liveServer.settings.multiRootWorkspaceName": "practice"
 	}
 }
