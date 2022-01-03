@@ -8,6 +8,8 @@
     <link rel= "stylesheet" href="styles.css">
 </head>
 <body>
+    
+  <body>
     <h1>What You know?</h1>
     <h3> The game that tests what you know?</h3>
 
@@ -18,54 +20,24 @@
         <h3>Here's how it works:</h3>
         <ol>
             <li>Players can select any of the provided categories. The number on each box represents how much the question under that category is worth</li>
-            <li> After the player selects a category, they will have 10 seconds to choose the correct answer</li>
+            <li> After the player selects a category, they will have 30 seconds to answer as many questions as they can. After one minute, players can declare a winnder (the player with the most correct answers) or continue playing the game</li>
             <li>If answered correctly, the player will receive the amount of points the question was worth. If the answered incorrectly, the player will not earn any points. </li>
-            <li>Players will have a total of [] minutes to answer as many questions as they can. The player with the most points after [] minutes is the winner</li>
+            <li>Players will have a total of 30 seconds to answer as many questions as they can. The player with the most points after 30 seconds is the winner</li>
         </ol>
        </div>
 
-       <button onclick="game.start()">START</button>
+
+
+       
+       <a href="game.html">
+           <button> Start </button>
+        </a>
+
+
 
       </div>
 
-
-
-    <div class='hide' id="game-container">
-      <div id="display-container">
-        <div>
-          <h4 id='player1-name'>Player One</h4>
-          <!-- <img class='img-size hide' id='p1-element' src="images/pokeball.png" alt="player one element"> -->
-        </div>
-        <div>
-          <h4 id='player2-name'>Player 2</h4>
-          <!-- <img class='img-size hide' id='p2-element' src="images/pokeball.png" alt="player two element"> -->
-        </div>
-      </div>
-
-      <p class='game-prompt'>Player One: Enter name</p>
-
-
-      <div class="name-container">
-        <form>
-          <div>
-            <label for="fname"> Player One Name:</label>
-            <input type="text" id='fname'>
-          </div>
-
-
-          <p class='game-prompt'>Player Two: Enter name</p>
-          <form>
-            <div>
-              <label for="fname"> Player Two Name:</label>
-              <input type="text" id='fname'>
-            </div>
-
-
-          <button onclick="game.start()">START</button>
-        </form>
-        </div>
   
-
 
 </body>
 </html>

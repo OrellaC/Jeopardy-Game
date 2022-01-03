@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy</title>
+    <link rel= "stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Jeopardy</h1>
+    <!-- This is where the game will be stored  -->
+    <div id="game"></div>
+    <h2>Player One's Score:<span id="score">0</span></h2>
+    <h2>Player Two's Score:<span id="score">0</span></h2>
+<!-- Player Declaration -->
+<div id="playerOne"></div>
+
+<div id="playerTwo"></div>
+<!-- Teo's example  -->
+    
+<!-- <div class='hide' id="game-container">
+    <div id="display-container">
+      <div>
+     <h4 id='p1-name'>Player 1</h4>
+      </div>
+
+      <div>
+        <h4 id='p2-name'>Player 2</h4>
+      </div>
+    </div> -->
+
+    <div id="create-container">
+        <form>
+          <div>
+            <label for="fname">Player One - Insert Name:</label>
+            <input type="text" id='fname'>
+          </div>
+          <label for="fname">Player Two - Insert Name:</label>
+          <input type="text" id='fname'>
+          <br/>
+          <button onclick='game.checkElement(event)'>Submit</button>
+
+          <p> Click the button below to switch players </p>
+          <button id="button" onclick="switchPlayers"> Switch </button>
+<div id = "Winner"> Winner:  </div>
+
+
+<button onClick="window.location.reload();">Restart Game</button>
+
+
+
+
+<div id="timer"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
