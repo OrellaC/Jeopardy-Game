@@ -5,36 +5,54 @@
   }
 
 body{
+    background-image: url("updated-image.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
-    align-items: center;
     flex-direction: column;
     height: 100vh;
-    justify-content: space-evenly;
-    text-align: center;
 }
 
 /* This container contains a description and instructions for the game */
 #instructions-container{
     display: flex;
-    background-color: blue;
+    background-color: ;
     padding: 10px;
 }
 
 #instructions-item{
-    background-color: white;
     border:;
     padding: 20px;
     font-size: 30px;
-    text-align: center;
+    text-align: ;
 }
 
+/* CSS for input box */
+#input-container{
+    display: flex;
+    background-color: rgb(218, 130, 15);
+    padding: 10px;
+    width: 600px;
+    align-items: flex-end;
+    flex-direction: column;
+   
+}
+
+#inputInfo{
+    border: ;
+    padding: 20px;
+    font-size: 30px;
+    align-self: stretch;
+
+}
   /* ===========  Css for the jeopardy board ============ */
 
   body {
     marign: 0;
     padding: 0;
     background-color: navy;
-    color: #fff;
+    color: black;
     font-family: 'Trebuchet MS', Arial;
     display: flex;
     justify-content: center;
@@ -74,6 +92,7 @@ body{
     background-color: #c73b1e;
 }
 
+/* Buttons */
 .true-button {
     background-color: #63b36e;
 }
@@ -86,7 +105,19 @@ button {
     margin: 5px;
 }
 
-/* CSS for the timer */
+#submitBtn{
+    background-color: green;
+}
+
+#continueBtn{
+    background-color: green;
+}
+
+#playAgainBtn{
+    background-color: red;
+}
+
+/* ================================ CSS for the timer ===========================*/
 .countdown{
 	background-color: white;
 	display: inline-flex;
@@ -99,8 +130,27 @@ button {
 	margin: 0;
 }
 
-/* Css for players  */
-#result{
-    display: none;
+#start-btn{
+    align-items: center;
+    justify-content: center;
 }
 
+/*  ========================== CSS for Player score box ======================== */
+
+
+
+#score-box-container{
+    display: flex;
+    background-color: rgb(218, 130, 15);
+    padding: 10px;
+    width: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+#score-box-item{
+    border: ;
+    padding: 20px;
+    font-size: 30px;
+    
+}

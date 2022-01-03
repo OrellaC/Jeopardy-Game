@@ -8,51 +8,33 @@
     <link rel= "stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Jeopardy</h1>
+    <h1>What Do You Know?</h1>
+
     <!-- This is where the game will be stored  -->
     <div id="game"></div>
-    <h2>Player One's Score:<span id="score">0</span></h2>
-    <h2>Player Two's Score:<span id="score">0</span></h2>
-<!-- Player Declaration -->
-<div id="playerOne"></div>
-
-<div id="playerTwo"></div>
-<!-- Teo's example  -->
-    
-<!-- <div class='hide' id="game-container">
-    <div id="display-container">
-      <div>
-     <h4 id='p1-name'>Player 1</h4>
-      </div>
-
-      <div>
-        <h4 id='p2-name'>Player 2</h4>
-      </div>
-    </div> -->
-
-    <div id="create-container">
-        <form>
-          <div>
-            <label for="fname">Player One - Insert Name:</label>
-            <input type="text" id='fname'>
-          </div>
-          <label for="fname">Player Two - Insert Name:</label>
-          <input type="text" id='fname'>
-          <br/>
-          <button onclick='game.checkElement(event)'>Submit</button>
-
-          <p> Click the button below to switch players </p>
-          <button id="button" onclick="switchPlayers"> Switch </button>
-<div id = "Winner"> Winner:  </div>
+    <h2 id ="namePlayerOne"></h2>
+    <h2 id ="namePlayerTwo"></h2>
+    <div id="timer"></div>
+    <!-- Buttons - continue button is shown after players complete oen round - they have the choice to either continue the game or restart the game from the beginning -->
+    <button style="visibility: hidden" id="continueBtn" onclick="onContinueBtn()"> Continue </button>
+    <div id = "winner"></div>
+    <button style="visibility: hidden" id="playAgainBtn" onClick="window.location.reload();">Play Again</button>
 
 
-<button onClick="window.location.reload();">Restart Game</button>
+    <!-- Stores Player Names - Game cannot start unless both players input name -->
+    <div id="input-container">
 
+        <div id="inputInfo">
+            <label for="pOneNameInput">Player One - Insert Name:</label>
+            <input type="text" id='pOneNameInput' value="">
 
+        <label for="pTwoNameInput">Player Two - Insert Name:</label>
+        <input type="text" id='pTwoNameInput' value="">
+        <br/>
+        <button id="submitBtn" onclick="onSubmitBtn()">Submit</button>
+        </div>
 
-
-<div id="timer"></div>
-
+</div>
 
     <script src="script.js"></script>
 

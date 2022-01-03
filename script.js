@@ -1,53 +1,23 @@
-//================== This is the JS for the Jeopardy game page ===== //
-
-// This defines/declares the "game" ID that we called on on the index html page 
-const game = document.getElementById('game')
-
-// This defines/declares the "score" ID that we called on on the index html page -- This will track the score of the players 
-const scoreDisplay = document.getElementById('score')
-let score = 0
-
-const fName = document.querySelector('#fname');
-
+//================== This is the JS for the Jeopardy game page (game.html) ===== //
 //// I want each player to have 30 seconds to answer as many questions as they can. After player one completes their 30 seconds, the screen should prompt player 2 to begin. After player 2 completes their 30 seconds, the screen should ask users whether or not they would like to continue the game or end the game by declaring a winner. The winner should be the player with the most points.
 
-//Create both players 
-// const playerOneName = document.querySelector('#playerOne');
-// const playerOneScore = document.querySelector('#playerOne-score');
-// const playerTwo = document.querySelector('#playerTwo');
-// const playerOneName = document.querySelector('#playerTwo-score');
 
-class playerOne{
-    constructor(name, score){
-        this.name = name;
-        this.score = score;
-    }
-}
-class playerTwo extends playerOne{
-    constructor(name, score)
-}
-
-// How to switch between players 
-function switchPlayers(){
-    var 
-}
+//I followed this tutorial (https://www.youtube.com/watch?v=zgHim4ZDpZY) to create my game and also made changes of my own (The tutorial is one player. I manipulated it to make it two player, track the score of each player, add a win/lose state and created a timer)
 
 
+// This defines/declares the "game" ID and the timer that we called on the game.html page 
+const game = document.getElementById('game')
+let startingTime = 0;
+let iterations = 0;
 
-//How to check for winner
-function checkWinner(){
-    let winner = ''
-    if(playerOne.score > 600){
-       prompt.innerText = `${playerOne.name} wins!`
-    }else if(playerTwo.score > 600){
-       prompt.innerText = `${playerTwo.name}wins!`
-    }else if (playerOne.score === playerTwo.score)
-       prompt.innerText = "It's a tie! Both players win!"
-    } else { 
-        // playerOne.score < 600 && playerTwo.score <600
-        window.prompt = "Would you like to continue playing?", "Yes/No"
-
-    }
+// This defines/declares the score, names of play one and two, and allows players to be switched by using a boolean statement
+let playerOneName = ''
+let playerTwoName = ''
+let playerOneScore = 0
+let playerTwoScore = 0
+let score = 0
+let playOneTurn = true;
+const fName = document.querySelector('#fname');
 
 
 
@@ -79,15 +49,17 @@ const genres = [
     }
 ]
 
-//this is the levels array
+//The levels array - based on the difficulty of each question asked 
 const levels = ['easy', 'medium', 'hard']
+
+
 function addGenre(genre) {
     // this is how you create an element within JS -- this creates the column on the jeopardy board
     const column = document.createElement('div')
     // This adds a class to the column just created -- this class holds the CSS for the columns
     column.classList.add('genre-column')
     column.innerHTML = genre.name
-    //This adds the column just created to the game div on the html page 
+    //This adds the column just created to the game div on the game.html page 
     game.append(column)
 
 
@@ -108,13 +80,14 @@ function addGenre(genre) {
         if (level === 'hard') {
             card.innerHTML = 300
         }
-        // Basically says that for each level in the "levels" array fetch the category and the level (easy, medium, or hard) in addition to each genre by it's id number
+        // For each level in the "levels" array fetch the category and the level (easy, medium, or hard) in addition to each genre by it's id number by using a template literal
+
         fetch(`https://opentdb.com/api.php?amount=1&category=${genre.id}&difficulty=${level}&type=boolean`)
-            //After the question is fetched 
+            //After the question is fetched (https://www.w3schools.com/js/js_promise.asp)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                // In relation to the format of the API -- setAttribute sets the value of the card/row. Data references the data within the API - ex. data-question callus upon the question within a specific category
+                // In relation to the format of the API -- setAttribute sets the value of the card/row. Data references the data within the API - ex. data-question calls upon the question within a specific category
                 card.setAttribute('data-question', data.results[0].question)
                 card.setAttribute('data-answer', data.results[0].correct_answer)
                 card.setAttribute('data-value', card.getInnerHTML())
@@ -124,15 +97,25 @@ function addGenre(genre) {
 
     })
 }
+//Occurs after timer ends - once time ends the continue and play again button become visible 
+function gameStart(){
+    startingTime = 30;
+    if (iterations < 2){
+        countDown();
+    }else {
+        winner();
+        document.getElementById("continueBtn").style.visibility = 'visible';
+        document.getElementById("playAgainBtn").style.visibility = 'visible';
 
-//creates a column for each genre in th array. Allows each category to display the questions via the API
-genres.forEach(genre => addGenre(genre))
-
+    }
+//Creates a column for each genre in the array. Allows each category to display the questions via the API
+    genres.forEach(genre => addGenre(genre))
+}
 
 function flipCard() {
     this.innerHTML = ''
-    this.style.fontSize = '15px'
-    //a button for each card - true/false buttons. Each question can be answered using true or false buttons
+    this.style.fontSize = '10px'
+    //A button for each card - true/false buttons. Each question can be answered using true or false buttons
     const textDisplay = document.createElement('div')
     const trueButton = document.createElement('button')
     const falseButton = document.createElement('button')
@@ -150,7 +133,7 @@ function flipCard() {
     allCards.forEach(card => card.removeEventListener('click', flipCard))
 }
 
-// This functions generates the score for each player 
+// Generates the score for each player 
 function getResult(Player) {
     const allCards = Array.from(document.querySelectorAll('.card'))
     allCards.forEach(card => card.addEventListener('click', flipCard))
@@ -159,16 +142,25 @@ function getResult(Player) {
 
     const cardOfButton = this.parentElement
 
-    // The if statement states that if the user's button/answer selection is the same as the API's answer, then they should get the value of that card. If not, they get 0 points
+    // If the user's button/answer selection is the same as the API's answer, then the player should get the value of that card. If not, they get 0 points
 
     if (cardOfButton.getAttribute('data-answer') === this.innerHTML) {
 
 
         // Generate score for player 1 
         // If correct, the player earns the value of the card/question according to API
-        score = score + parseInt(cardOfButton.getAttribute('data-value'))
-        scoreDisplay.innerHTML = score
+        score =  parseInt(cardOfButton.getAttribute('data-value'))
+        if (playOneTurn){
+            playerOneScore += score;
+            document.getElementById("namePlayerOne").innerHTML = playerOneName+" "+playerOneScore
+        }else {
+            playerTwoScore += score;
+            document.getElementById("namePlayerTwo").innerHTML = playerTwoName+" "+playerTwoScore
+
+        }
+
         cardOfButton.classList.add('correct-answer')
+
         // This while loop removes the options from the questions after the answer is selected - otherwise players can cheat by repeatedly pressing button
         setTimeout(() => {
             while (cardOfButton.firstChild) {
@@ -188,23 +180,62 @@ function getResult(Player) {
     cardOfButton.removeEventListener('click', flipCard)
 }
 
+// Timer function
+let timer = document.querySelector("#timer")
 
-const startingTime = 30
-document.querySelector("#timer")
-
-let playerTimer = 31
 
 function countDown() {
-if(startingTime === 0){
-  clearTimeout()
-} else{
-    startingTime--
-   timer.innerText = startingTime
-   setTimeout(countDown, 1000)
-}
+
+    if(startingTime === 0){
+        iterations ++;
+        clearTimeout()
+        playOneTurn=false
+        gameStart();
+
+    } else{
+        startingTime--
+       timer.innerText =""+startingTime
+        setTimeout(countDown, 1000)
+    }
+    console.log(iterations)
+
 }
 
-countDown()
+//Submit button function - game will not run if players do not submit a name 
+
+function onSubmitBtn() {
+     playerOneName = document.getElementById('pOneNameInput').value;
+     playerTwoName = document.getElementById('pTwoNameInput').value;
+    if (playerOneName!== "" && playerTwoName !== "") {
+        document.getElementById("namePlayerOne").innerHTML = playerOneName;
+        document.getElementById("namePlayerTwo").innerHTML = playerTwoName;
+        document.getElementById('inputInfo').style.visibility = 'hidden';
+        gameStart()
+    }
+
+}
+
+//Continue button function - allows players to continue playing the game after first round has completed 
+function onContinueBtn(){
+    playOneTurn =true;
+    iterations = 0;
+    gameStart();
+    document.getElementById('continueBtn').style.visibility = 'hidden';
+    document.getElementById('playAgainBtn').style.visibility = 'hidden';
+
+}
+
+//Winner function - shows which player has the most points after first round - also declares winner
+function winner(){
+    let text = " won this round"
+    let winnerText = document.getElementById("winner");
+if (playerOneScore === playerTwoScore) winnerText.innerHTML = "Draw";
+if(playerOneScore > playerTwoScore){
+    winnerText.innerHTML = `${playerOneName} ${text}`
+}
+  winnerText.innerHTML = `${playerTwoName} ${text}`
+}
+
 
 
 
