@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeopardy</title>
+    <title>What Do You Know</title>
     <link rel= "stylesheet" href="styles.css">
 </head>
 <body>
-
+    <div id="place-holder"></div>
+    <div id="place-holder-container"></div>
     <!-- This is where the game will be stored  -->
     <div id="game"></div>
     <h2 id ="namePlayerOne"></h2>
@@ -19,7 +20,7 @@
 
     <button style="visibility: hidden" id="continueBtn" onclick="onContinueBtn()"> Continue </button>
     <div id = "winner"></div>
-    <button style="visibility: hidden" id="playAgainBtn" onClick="window.location.reload();">Play Again</button>
+    <button style="visibility: hidden" id="playAgainBtn" onClick="window.location.reload();">Restart Game</button>
 
 
     <!-- Stores Player Names - Game cannot start unless both players input name -->

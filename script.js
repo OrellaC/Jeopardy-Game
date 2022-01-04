@@ -2,7 +2,7 @@
 //// I want each player to have 30 seconds to answer as many questions as they can. After player one completes their 30 seconds, the screen should prompt player 2 to begin. After player 2 completes their 30 seconds, the screen should ask users whether or not they would like to continue the game or end the game by declaring a winner. The winner should be the player with the most points.
 
 
-//I followed this tutorial (https://www.youtube.com/watch?v=zgHim4ZDpZY) to create my game and also made changes of my own (The tutorial is one player. I manipulated it to make it two player, track the score of each player, add a win/lose state and created a timer)
+//I followed this tutorial (https://www.youtube.com/watch?v=zgHim4ZDpZY) to create my game and also made changes of my own (The tutorial is one player. I manipulated my project to make it two player, track the score of each player, add a win/lose state and created a timer)
 
 
 // This defines/declares the "game" ID and the timer that we called on the game.html page 
@@ -194,7 +194,7 @@ function countDown() {
 
     } else{
         startingTime--
-       timer.innerText =""+startingTime
+       timer.innerText =" "+startingTime
         setTimeout(countDown, 1000)
     }
     console.log(iterations)
