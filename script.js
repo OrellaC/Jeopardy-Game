@@ -2,13 +2,13 @@
 //// I want each player to have 30 seconds to answer as many questions as they can. After player one completes their 30 seconds, the screen should prompt player 2 to begin. After player 2 completes their 30 seconds, the screen should ask users whether or not they would like to continue the game or end the game by declaring a winner. The winner should be the player with the most points.
 
 
-//I followed this tutorial (https://www.youtube.com/watch?v=zgHim4ZDpZY) to create my game and also made changes of my own (The tutorial is one player. I manipulated my project to make it two player, track the score of each player, add a win/lose state and created a timer)
+//I followed this tutorial (https://www.youtube.com/watch?v=zgHim4ZDpZY) to create my game and also made changes of my own. The tutorial is one player and does not have a win/lose state (The game doesn't end unless user refreshes page). I manipulated my project to make it two player, track the score of each player, add a win/lose state and created a timer.
 
 
 // This defines/declares the "game" ID and the timer that we called on the game.html page 
 const game = document.getElementById('game')
 let startingTime = 0;
-let iterations = 0;
+let i = 0;
 
 // This defines/declares the score, names of play one and two, and allows players to be switched by using a boolean statement
 let playerOneName = ''
@@ -83,7 +83,7 @@ function addGenre(genre) {
         // For each level in the "levels" array fetch the category and the level (easy, medium, or hard) in addition to each genre by it's id number by using a template literal
 
         fetch(`https://opentdb.com/api.php?amount=1&category=${genre.id}&difficulty=${level}&type=boolean`)
-            //After the question is fetched (https://www.w3schools.com/js/js_promise.asp)
+            //After the question is fetched (https://www.w3schools.com/js/js_promise.asp)/https://developer.mozilla.org/en-US/docs/Web/API/Response/json
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -97,18 +97,18 @@ function addGenre(genre) {
 
     })
 }
-//Occurs after timer ends - once time ends the continue and play again button become visible 
-function gameStart(){
+//Occurs after timer ends - once time ends the continue and play again button become visible -- the issue is that every time the game switches to a new player the board is duplicated instead of just being updated 
+function gameStart() {
     startingTime = 30;
-    if (iterations < 2){
+    if (i < 2) {
         countDown();
-    }else {
+    } else {
         winner();
         document.getElementById("continueBtn").style.visibility = 'visible';
         document.getElementById("playAgainBtn").style.visibility = 'visible';
 
     }
-//Creates a column for each genre in the array. Allows each category to display the questions via the API
+    //Creates a column for each genre in the array. Allows each category to display the questions via the API
     genres.forEach(genre => addGenre(genre))
 }
 
@@ -149,13 +149,13 @@ function getResult(Player) {
 
         // Generate score for player 1 
         // If correct, the player earns the value of the card/question according to API
-        score =  parseInt(cardOfButton.getAttribute('data-value'))
-        if (playOneTurn){
+        score = parseInt(cardOfButton.getAttribute('data-value'))
+        if (playOneTurn) {
             playerOneScore += score;
-            document.getElementById("namePlayerOne").innerHTML = playerOneName+" "+playerOneScore
-        }else {
+            document.getElementById("namePlayerOne").innerHTML = playerOneName + " " + playerOneScore
+        } else {
             playerTwoScore += score;
-            document.getElementById("namePlayerTwo").innerHTML = playerTwoName+" "+playerTwoScore
+            document.getElementById("namePlayerTwo").innerHTML = playerTwoName + " " + playerTwoScore
 
         }
 
@@ -186,27 +186,27 @@ let timer = document.querySelector("#timer")
 
 function countDown() {
 
-    if(startingTime === 0){
-        iterations ++;
+    if (startingTime === 0) {
+        i++;
         clearTimeout()
-        playOneTurn=false
+        playOneTurn = false
         gameStart();
 
-    } else{
+    } else {
         startingTime--
-       timer.innerText =" "+startingTime
+        timer.innerText = " " + startingTime
         setTimeout(countDown, 1000)
     }
-    console.log(iterations)
+    console.log(i)
 
 }
 
 //Submit button function - game will not run if players do not submit a name 
 
 function onSubmitBtn() {
-     playerOneName = document.getElementById('pOneNameInput').value;
-     playerTwoName = document.getElementById('pTwoNameInput').value;
-    if (playerOneName!== "" && playerTwoName !== "") {
+    playerOneName = document.getElementById('pOneNameInput').value;
+    playerTwoName = document.getElementById('pTwoNameInput').value;
+    if (playerOneName !== "" && playerTwoName !== "") {
         document.getElementById("namePlayerOne").innerHTML = playerOneName;
         document.getElementById("namePlayerTwo").innerHTML = playerTwoName;
         document.getElementById('inputInfo').style.visibility = 'hidden';
@@ -216,24 +216,24 @@ function onSubmitBtn() {
 }
 
 //Continue button function - allows players to continue playing the game after first round has completed 
-function onContinueBtn(){
-    playOneTurn =true;
-    iterations = 0;
+function onContinueBtn() {
+    playOneTurn = true;
+    i = 0;
     gameStart();
     document.getElementById('continueBtn').style.visibility = 'hidden';
     document.getElementById('playAgainBtn').style.visibility = 'hidden';
 
 }
 
-//Winner function - shows which player has the most points after first round - also declares winner
-function winner(){
+//Winner function - shows which player has the most points after first round - also declares the loser
+function winner() {
     let text = "lost this round"
     let winnerText = document.getElementById("winner");
-if (playerOneScore === playerTwoScore) winnerText.innerHTML = "Draw";
-if(playerOneScore > playerTwoScore){
-    winnerText.innerHTML = `${playerOneName} ${text}`
-}
-  winnerText.innerHTML = `${playerTwoName} ${text}`
+    if (playerOneScore === playerTwoScore) winnerText.innerHTML = "Draw";
+    if (playerOneScore > playerTwoScore) {
+        winnerText.innerHTML = `${playerOneName} ${text}`
+    }
+    winnerText.innerHTML = `${playerTwoName} ${text}`
 }
 
 
