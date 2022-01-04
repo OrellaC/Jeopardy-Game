@@ -1,5 +1,6 @@
 # Jeopardy-Game
 <h3><u>Link to Game:</u></h3> 
+******For some reason my index.html does not appear on the netlify website. It supposed to be the first page of my website, followed my the game.html. However, my project is completed minus the unsolved issues listed below********
 https://distracted-poincare-5d8219.netlify.app/game.html
 
 <h3><u>Description:</u></h3> 
