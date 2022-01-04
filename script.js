@@ -99,7 +99,7 @@ function addGenre(genre) {
 }
 //Occurs after timer ends - once time ends the continue and play again button become visible 
 function gameStart(){
-    startingTime = 30;
+    startingTime = 15;
     if (iterations < 2){
         countDown();
     }else {

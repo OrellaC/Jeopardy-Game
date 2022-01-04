@@ -1,0 +1,44 @@
+* {
+    margin: auto;
+}
+body {
+    margin: auto;
+    padding: 0;
+    background-image: url("/index-background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: skyblue;
+    color: black;
+    font-family: 'Trebuchet MS', Arial;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+/* This container contains a description and instructions for the game */
+#instructions-container{
+    display: flex;
+    background-color: rgb(37, 115, 211);
+    padding: 10px;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    height: 50vh;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+#instructions-item{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border:;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    background: linear-gradient(to top left, #000088, #0000ff);
+}

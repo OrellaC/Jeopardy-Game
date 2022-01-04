@@ -14,19 +14,7 @@ body{
     height: 100vh;
 }
 
-/* This container contains a description and instructions for the game */
-#instructions-container{
-    display: flex;
-    background-color: ;
-    padding: 10px;
-}
 
-#instructions-item{
-    border:;
-    padding: 20px;
-    font-size: 30px;
-    text-align: ;
-}
 
 /* CSS for input box */
 #input-container{
