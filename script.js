@@ -99,7 +99,7 @@ function addGenre(genre) {
 }
 //Occurs after timer ends - once time ends the continue and play again button become visible 
 function gameStart(){
-    startingTime = 15;
+    startingTime = 30;
     if (iterations < 2){
         countDown();
     }else {
@@ -227,7 +227,7 @@ function onContinueBtn(){
 
 //Winner function - shows which player has the most points after first round - also declares winner
 function winner(){
-    let text = "won this round"
+    let text = "lost this round"
     let winnerText = document.getElementById("winner");
 if (playerOneScore === playerTwoScore) winnerText.innerHTML = "Draw";
 if(playerOneScore > playerTwoScore){

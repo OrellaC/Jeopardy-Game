@@ -69,7 +69,8 @@ body{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: navy;
+    font-size: 150%;
 }
 
 .genre-column {
@@ -84,7 +85,7 @@ body{
     width: 200px;
     height: 120px;
     border-radius: 20px;
-	background: linear-gradient(to top left, #000088, #0000ff);
+	background: rgb(6, 148, 205);
     border: solid yellow 5px;
     text-align: center;
     padding: 5px;
@@ -160,4 +161,6 @@ background-color: navy;
 color: red;
 background-color: navy;
 }
+
+
 

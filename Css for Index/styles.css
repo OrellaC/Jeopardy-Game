@@ -4,7 +4,7 @@
 body {
     margin: auto;
     padding: 0;
-    background-image: url("//Images/index-background.png");
+    background-image: url("/Images/index-background.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
