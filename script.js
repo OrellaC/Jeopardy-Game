@@ -114,7 +114,7 @@ function gameStart(){
 
 function flipCard() {
     this.innerHTML = ''
-    this.style.fontSize = '10px'
+    this.style.fontSize = '20px'
     //A button for each card - true/false buttons. Each question can be answered using true or false buttons
     const textDisplay = document.createElement('div')
     const trueButton = document.createElement('button')
@@ -227,7 +227,7 @@ function onContinueBtn(){
 
 //Winner function - shows which player has the most points after first round - also declares winner
 function winner(){
-    let text = " won this round"
+    let text = "won this round"
     let winnerText = document.getElementById("winner");
 if (playerOneScore === playerTwoScore) winnerText.innerHTML = "Draw";
 if(playerOneScore > playerTwoScore){

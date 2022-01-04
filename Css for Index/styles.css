@@ -26,12 +26,41 @@ body {
     height: 50vh;
     width: 50%;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-between;
     text-align: center;
-    
+    border-style: solid;
+    border-width: thick;
 }
 
 #instructions-item{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    height: 70%;
+    background: lightblue;
+    border-style: solid;
+    border-width: thick;
+}
+
+/* =========== Place Holder -- I had an issue centering my instruction container so i created a clear div--- */
+#place-holder{
+    display: flex;
+    background-color: clear;
+    padding: 10px;
+    flex-wrap: wrap;
+    height: 20vh;
+    width: 50%;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-between;
+    text-align: center; 
+}
+
+#place-holder-container{
     display: flex; 
     flex-wrap: wrap;
     justify-content: center;
@@ -40,5 +69,13 @@ body {
     padding: 10px;
     font-size: 20px;
     color: black;
-    background: linear-gradient(to top left, #000088, #0000ff);
+}
+
+
+
+/* START button */
+#start-btn{
+    width: 100px;
+    height: 100px;
+    font-size: 50%;
 }

@@ -1,11 +1,9 @@
 * {
     margin: 0;
-    box-sizing: border-box;
-    /* font-family: 'Readex Pro', sans-serif; */
   }
 
 body{
-    background-image: url("updated-image.png");
+    background-image: url("Jeopardy-background-image.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -19,19 +17,21 @@ body{
 /* CSS for input box */
 #input-container{
     display: flex;
-    background-color: rgb(218, 130, 15);
+    background-color: clear;
     padding: 10px;
     width: 600px;
-    align-items: flex-end;
-    flex-direction: column;
-   
+    align-items: center;
+    margin: auto;   
 }
 
 #inputInfo{
-    border: ;
+    display: flex;
+    flex-wrap: wrap;
+    border:;
     padding: 20px;
     font-size: 30px;
-    align-self: stretch;
+    align-items: center;
+    justify-content: center;
 
 }
   /* ===========  Css for the jeopardy board ============ */
@@ -39,7 +39,7 @@ body{
   body {
     marign: 0;
     padding: 0;
-    background-color: navy;
+    background-color: lightblue;
     color: black;
     font-family: 'Trebuchet MS', Arial;
     display: flex;
@@ -94,7 +94,7 @@ button {
 }
 
 #submitBtn{
-    background-color: green;
+    background-color: rgb(98, 213, 98);
 }
 
 #continueBtn{
@@ -106,7 +106,7 @@ button {
 }
 
 /* ================================ CSS for the timer ===========================*/
-.countdown{
+.timer{
 	background-color: white;
 	display: inline-flex;
 	align-items: center;
@@ -123,22 +123,6 @@ button {
     justify-content: center;
 }
 
-/*  ========================== CSS for Player score box ======================== */
 
 
 
-#score-box-container{
-    display: flex;
-    background-color: rgb(218, 130, 15);
-    padding: 10px;
-    width: 600px;
-    align-items: center;
-    justify-content: center;
-}
-
-#score-box-item{
-    border: ;
-    padding: 20px;
-    font-size: 30px;
-    
-}
