@@ -27,10 +27,10 @@ I followed this tutorial mostly (https://www.youtube.com/watch?v=zgHim4ZDpZY) to
 <h3><u> Unsolved Issues:</u></h3> 
 <li> The biggest issue with my project right now is that after each round the trivia categories duplicate. I can't seem to figure out why that is but I know it most likely has to do with one of the functions/iterations.
 However, I didn't have enough time to fix it. </li>
-<li> Some questions extend outside of the vategory card and doesn't allow the user to locate the true or false buttons. In additions some boxes are empty. </li>
+<li> Some questions extend outside of the category card and doesn't allow the user to locate the true or false buttons. In additions some boxes are empty. </li>
 <li> I have a few minor CSS issues. Such as centering one of my flexboxes </li>
 
 <h3><u> Future Plans for Game:</u></h3>
 I'd first like to solve all of the previously mentioned unsolved issues. In addition, I would like to create my own API that generates my own questions. 
-All of the tutorials I followed to create a trivia game used an API because "it's easier than creating your own questions in the form of an array" (Less time consuming). 
+All of the tutorials I followed to create a trivia game used an API because "it's easier than creating your own questions in the form of an array" (less time consuming). 
 I would also like to incorporate some cool CSS elements such as animations and media. For example, implementing a sound when a question is answered incorreclty. 
